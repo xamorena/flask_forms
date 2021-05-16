@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+
+            <form action="/" class="form" id="test_form" method="POST">
+                {{ form.hidden_tag() }}
+                <h3 class="h3 mb-3 text-center">Test Form</h3>
+                <fieldset class="form-group">
+                    <legend class="text-center">Test wtforms fields</legend>
+                    <div class="form-group">
+                        {{ form.test_email.label(class_="form-control-label") }}
+                        <div class="input-group input-group-merge">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            {{ form.test_email(placeholder="user-part@domain.tld", class_="form-control") }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_text.label() }}
+                        {{ form.test_text(class_="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_textarea.label() }}
+                        {{ form.test_textarea(class_="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_date.label() }}
+                        {{ form.test_date(class_="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_time.label() }}
+                        {{ form.test_time(class_="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_datetime.label() }}
+                        {{ form.test_datetime(class_="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_search.label() }}
+                        <div class="input-group input-group-merge">
+                            {{ form.test_search(class_="form-control") }}
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.test_check(class_="form-control") }}
+                        {{ form.test_check.label() }}
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <pre>
+                {% if data %}
+                <code>{{data}}</code>
+                {% endif %}
+            </pre>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
